@@ -1,9 +1,9 @@
 package com.company;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.*;
 
 /**
  * Created by Sanne on 5-2-2016.
@@ -13,21 +13,27 @@ public class reader {
 
     public static void reader() {
         try {
-            words = new BufferedReader(new FileReader("wordlist.txt"));
+            words = new BufferedReader(new FileReader(new File("wordlist.txt")));
         }
         catch(Exception e){
+            System.out.println(e);
             System.out.println("Error");
         }
-        ArrayList<String> arrayWords = new ArrayList();
+        String[] arrayWords = new String[10000000];
+        int count = 0;
         while (true){
             try {
                 String word = words.readLine();
-                arrayWords.add(word);
+                arrayWords[count]= word;
+                if (word == ""){
+                    break;
+                }
+                count++;
             }
             catch (Exception e) {//            if (word == ""){
-                break;
+                System.out.println("Error");
             }
         }
-        System.out.println(arrayWords);
+        System.out.println(arrayWords.length);
     }
 }
