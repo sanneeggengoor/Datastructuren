@@ -9,4 +9,7 @@ public class Main {
         reader.readfile();
     }
 
+    private void samples(){
+
+    }
 }
