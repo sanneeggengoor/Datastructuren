@@ -11,16 +11,16 @@ import java.io.FileReader;
 public class reader {
     public static BufferedReader words;
 
-    public static void readfile() {
+    public static String[] readfile(String file) {
         try {
-            words = new BufferedReader(new FileReader(new File("wordlist.txt")));
+            words = new BufferedReader(new FileReader(new File(file)));
         }
         catch(Exception e){
             //System.out.println(e);
             System.out.println("Error1");
         }
         String[] arrayWords = new String[1000000];
-        int count = 0;
+        int count = 1;
         while (true){
             try {
                 String word = words.readLine();
@@ -36,5 +36,6 @@ public class reader {
             }
         }
         System.out.println(arrayWords.length);
+        return arrayWords;
     }
 }
