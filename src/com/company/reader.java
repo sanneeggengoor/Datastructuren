@@ -20,7 +20,7 @@ public class reader {
             System.out.println("Error1");
         }
         String[] arrayWords = new String[1000000];
-        int count = 1;
+        int count = 0;
         while (true){
             try {
                 String word = words.readLine();
@@ -35,7 +35,7 @@ public class reader {
                 break;
             }
         }
-        System.out.println(arrayWords.length);
+        System.out.println(arrayWords[0]);
         return arrayWords;
     }
 }

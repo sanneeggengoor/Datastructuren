@@ -15,7 +15,8 @@ public class Main {
             arraySample = reader.readfile("sample_o]_4D=12UBt.txt");
             System.out.println(arraySample[999999]);
             int good = compareSample();
-            System.out.println(good+"/"+arraySample.length);
+            int length = computelength(arraySample);
+            System.out.println(good+"/"+length);
     //    }
       //  catch (Exception e){
         //    System.out.println("Error!");
@@ -38,7 +39,7 @@ public class Main {
         //System.out.print(length);
         for (int i = 0; i < length; i++) {
 
-            if (word == arrayWords[i]){
+            if (word.equals(arrayWords[i])){
                 System.out.println("Hier ben ik nu");
                 return true;
             }
