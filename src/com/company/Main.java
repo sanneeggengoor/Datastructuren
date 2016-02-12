@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.SyncFailedException;
 
 public class Main {
 
@@ -12,6 +13,7 @@ public class Main {
   //      try {
             arrayWords = reader.readfile("wordlist.txt");
             arraySample = reader.readfile("sample_o]_4D=12UBt.txt");
+            System.out.println(arraySample[999999]);
             int good = compareSample();
             System.out.println(good+"/"+arraySample.length);
     //    }
@@ -22,7 +24,8 @@ public class Main {
 
     private static int compareSample(){
         int count = 0;
-        for (int i = 0; i < arraySample.length; i++){
+        int length = computelength(arraySample);
+        for (int i = 0; i < length; i++){
             if (compare(arraySample[i])){
                 count++;
             }
@@ -31,7 +34,9 @@ public class Main {
     }
 
     private static boolean compare(String word){
-        for (int i = 0; i < arrayWords.length; i++) {
+        int length = computelength(arrayWords);
+        //System.out.print(length);
+        for (int i = 0; i < length; i++) {
 
             if (word == arrayWords[i]){
                 System.out.println("Hier ben ik nu");
@@ -39,5 +44,16 @@ public class Main {
             }
         }
         return false;
+    }
+
+    private static int computelength(String[] arr){
+        int index = 0;
+        while (true){
+            if (arr[index] == null){
+                break;
+            }
+            index++;
+        }
+        return index;
     }
 }
