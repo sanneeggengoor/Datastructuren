@@ -1,22 +1,23 @@
 package com.company;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.SyncFailedException;
+
 
 public class Main {
 
     static String[] arrayWords;
     static String[] arraySample;
-    static String[] allsamples;
+    public static String[] allsamples;
 
     public static void main(String[] args) {
+        hashtable.createHashes();
         // make an array with all the filenames of the samples
-        allsamples = reader.readfile("samplestext.txt");
+        // allsamples = reader.readfileArray("samplestext.txt");
         // make an array with all the words
-        arrayWords = reader.readfile("wordlist.txt");
+        // arrayWords = reader.readfileArray("wordlist.txt");
         // compare the samples with the wordlist
-        compareSample();
+        // compareSample();
+
+
     }
 
     // compares samples with the wordlist
@@ -28,7 +29,7 @@ public class Main {
         for (int i = 1; i < 31; i++){
             // get the file name from place i and make array
             String file = allsamples[i];
-            arraySample = reader.readfile(file);
+            arraySample = reader.readfileArray(file);
 
             // take time before comparing
             long time1 = System.nanoTime();
