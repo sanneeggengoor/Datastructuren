@@ -89,7 +89,7 @@ public class reader {
 
                 int hashnum = hashtable.hash(word);
                 // add word to count
-                for(int i = 0; i<1000; i++) {
+                for(int i = 0; i<10000; i++) {
                     if(hashWords[hashnum][i]==null){
                         hashWords[hashnum][i] = word;
                         break;
