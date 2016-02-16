@@ -9,13 +9,12 @@ public class Main {
     public static String[] allsamples;
 
     public static void main(String[] args) {
-        hashtable.createHashes();
         // make an array with all the filenames of the samples
-        // allsamples = reader.readfileArray("samplestext.txt");
+        allsamples = reader.readfileArray("samplestext.txt");
         // make an array with all the words
-        // arrayWords = reader.readfileArray("wordlist.txt");
+        arrayWords = reader.readfileArray("wordlist.txt");
         // compare the samples with the wordlist
-        // compareSample();
+        compareSample();
 
 
     }
@@ -92,7 +91,7 @@ public class Main {
     }
 
     // get number of words in array
-    private static int computelength(String[] arr){
+    public static int computelength(String[] arr){
         // initiate counter
         int index = 0;
 

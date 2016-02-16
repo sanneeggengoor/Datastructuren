@@ -3,7 +3,7 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.Hashtable;
+
 
 
 /* Class for reading files into arrays
@@ -63,7 +63,7 @@ public class reader {
 
 
     // create a hashtable from file
-    public static Hashtable<Integer, String> readfileHash(String file){
+    public static String[][] readfileHash(String file){
         // read file in words
         try {
             words = new BufferedReader(new FileReader(new File(file)));
@@ -74,8 +74,8 @@ public class reader {
             System.out.println("Error1" + e);
         }
 
-        Hashtable<Integer, String> hashWords = new Hashtable<Integer, String>(999999);
-        int count = 0;
+        String[][] hashWords  = new String[600][10000];
+
         while (true) {
             try {
                 // read next line to word
@@ -87,11 +87,14 @@ public class reader {
                     break;
                 }
 
+                int hashnum = hashtable.hash(word);
                 // add word to count
-                hashWords.put(count, word);
-
-                // count + 1
-                count++;
+                for(int i = 0; i<1000; i++) {
+                    if(hashWords[hashnum][i]==null){
+                        hashWords[hashnum][i] = word;
+                        break;
+                    }
+                }
             }
 
             // if it doesn't work, return error
@@ -103,5 +106,6 @@ public class reader {
         return hashWords;
 
     }
+
 
 }
