@@ -1,22 +1,18 @@
 package com.company;
 
 
-import java.util.Hashtable;
 
 /**
  * Created by Sanne on 14-2-2016.
  */
 public class hashtable {
 
-    public static Hashtable<Integer, String> hashWordList;
-    public static Hashtable<Integer, String> hashWordSamples;
-    public static Hashtable<Integer,String> hashSample;
+    static String[][] hashWordList;
+    static String[] AllSamples;
     public static void createHashes(){
         hashWordList = reader.readfileHash("wordlist.txt");
-        hashWordSamples = reader.readfileHash("samplestext.txt");
+        AllSamples = reader.readfileArray("samplestext.txt");
         compareSamples();
-
-
     }
 
     private static void compareSamples(){
@@ -26,19 +22,21 @@ public class hashtable {
          */
         for (int i = 1; i < 31; i++){
             // get the file name from place i and make array
-            String file = hashWordSamples.get(i);
-            hashSample= reader.readfileHash(file);
+            String file = AllSamples[i];
+            String[] samplearray = reader.readfileArray(file);
 
             // take time before comparing
             long time1 = System.nanoTime();
 
             // get number of words of sample that are in wordlist
-            int good = numGoodOfSample();
+            int good = numGoodOfSample(samplearray);
 
             // take time after comparing
             long time2 = System.nanoTime();
             // computes total time
             long totaltime = time2 - time1;
+
+            int length = Main.computelength(samplearray);
 
 
 
@@ -47,21 +45,23 @@ public class hashtable {
              */
             System.out.println(file);
             System.out.println("time : "+ totaltime);
-            System.out.println(good+"/"+hashSample.size());
+            System.out.println(good+"/"+length);
         }
 
 
     }
 
     // get integer with how many words of sample are in wordlist
-    private static int numGoodOfSample(){
+    private static int numGoodOfSample(String[] samplearray){
         // initiate counter and get num of words in sample
         int count = 0;
+        int length = Main.computelength(samplearray);
 
         // for every word, check if in list, if so count++
-        for (int i = 0; i < hashSample.size(); i++){
-            String word = hashSample.get(i);
-            if (hashWordList.contains(word)){
+        for (int i = 0; i < length; i++){
+            String word = samplearray[i];
+            int hashnumber = hash(word);
+            if (hashWordList.con){ //HIER VERDER STRAKS!
                 count++;
             }
         }
@@ -69,4 +69,24 @@ public class hashtable {
         // return integer count
         return count;
     }
+
+    public static int hash(String word){
+        int count = 0;
+        char[] wordChar = word.toCharArray();
+        char [] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+                'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+                'w', 'x', 'y', 'z'};
+        for(int i = 0; i<wordChar.length; i++){
+            char lowerchar = Character.toLowerCase(wordChar[i]);
+            for (int j = 0; j<26; j++){
+                if (lowerchar == alphabet[j]){
+                    count = count + (3*j) + i;
+                    break;
+                }
+            }
+        }
+        count = count % 600;
+        return count;
+    }
 }
+
