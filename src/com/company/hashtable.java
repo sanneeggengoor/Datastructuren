@@ -11,7 +11,7 @@ public class hashtable {
 
     public static void analyseHashes(){
         // read files in hashtable
-        hashWordList = reader.readfileHash("wordlist.txt");
+        hashWordList = reader.readfileHashOpen("wordlist.txt");
 
         // compare samples to hashtables
         compareSamples();

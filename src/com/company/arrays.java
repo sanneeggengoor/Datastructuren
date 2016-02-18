@@ -18,10 +18,10 @@ public class arrays {
     // compares samples with the wordlist
     private static void compareSample(){
         /* for every sample compare the words in the sample to
-         * the words in the wordlist. Starts at 1, because when
-         * starting at 0 an error occurs.
+         * the words in the wordlist. Starts at 1, because at 0
+         * is a header included.
          */
-        for (int i = 0; i < 30; i++){
+        for (int i = 1; i < 31; i++){
             // get the file name from place i and make array
             String file = Main.AllSamples[i];
             arraySample = reader.readfileArray(file);

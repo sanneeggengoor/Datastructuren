@@ -63,7 +63,7 @@ public class reader {
 
 
     // create a hashtable from file
-    public static String[][] readfileHash(String file){
+    public static String[][] readfileHashOpen(String file){
         // read file in words
         try {
             words = new BufferedReader(new FileReader(new File(file)));
@@ -106,6 +106,8 @@ public class reader {
         return hashWords;
 
     }
+
+    
 
 
 }
