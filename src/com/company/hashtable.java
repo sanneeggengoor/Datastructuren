@@ -4,14 +4,14 @@ package com.company;
 /**
  * Class for analysing wordlists in hashtables
  */
-public class Hashtable {
+public class hashtable {
 
     // create a twodimensional array as hashtable
     static String[][] hashWordList;
 
     public static void analyseHashes(){
         // read files in hashtable
-        hashWordList = Reader.readfileHash("wordlist.txt");
+        hashWordList = reader.readfileHashOpen("wordlist.txt");
 
         // compare samples to hashtables
         compareSamples();
@@ -25,7 +25,7 @@ public class Hashtable {
         for (int i = 1; i < 31; i++){
             // get the file name from place i and make array
             String file = Main.AllSamples[i];
-            String[] samplearray = Reader.readfileArray(file);
+            String[] samplearray = reader.readfileArray(file);
 
             // take time before comparing
             long time1 = System.nanoTime();

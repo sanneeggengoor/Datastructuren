@@ -1,18 +1,20 @@
 package com.company;
 
+
+
 public class Main {
 
     public static String[] AllSamples;
 
     public static void main(String[] args) {
-        // create an array with all samples
-        AllSamples = Reader.readfileArray("samplestext.txt");
+        // create an array with all
+        AllSamples = reader.readfileArray("samplestext.txt");
 
         // analyse data in hashtable
-        Hashtable.analyseHashes();
+        hashtable.analyseHashes();
 
         // analyse data in arrays
-        Arrays.analyseArray();
+        arrays.analyseArray();
     }
 
     // get number of words in array

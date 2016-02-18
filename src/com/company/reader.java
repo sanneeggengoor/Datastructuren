@@ -9,7 +9,7 @@ import java.io.FileReader;
 /* Class for reading files into arrays
  *
  */
-public class Reader {
+public class reader {
 
     // create bufferedreader words
     public static BufferedReader words;
@@ -63,7 +63,7 @@ public class Reader {
 
 
     // create a hashtable from file
-    public static String[][] readfileHash(String file){
+    public static String[][] readfileHashOpen(String file){
         // read file in words
         try {
             words = new BufferedReader(new FileReader(new File(file)));
@@ -106,6 +106,8 @@ public class Reader {
         return hashWords;
 
     }
+
+    
 
 
 }
