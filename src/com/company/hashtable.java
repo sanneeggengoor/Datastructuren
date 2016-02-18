@@ -11,7 +11,7 @@ public class hashtable {
 
     public static void analyseHashes(){
         // read files in hashtable
-        hashWordList = reader.readfileHash("wordlist.txt");
+        hashWordList = Reader.readfileHash("wordlist.txt");
 
         // compare samples to hashtables
         compareSamples();
@@ -25,7 +25,7 @@ public class hashtable {
         for (int i = 1; i < 31; i++){
             // get the file name from place i and make array
             String file = Main.AllSamples[i];
-            String[] samplearray = reader.readfileArray(file);
+            String[] samplearray = Reader.readfileArray(file);
 
             // take time before comparing
             long time1 = System.nanoTime();
