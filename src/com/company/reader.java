@@ -9,7 +9,7 @@ import java.io.FileReader;
 /* Class for reading files into arrays
  *
  */
-public class reader {
+public class Reader {
 
     // create bufferedreader words
     public static BufferedReader words;
@@ -87,7 +87,7 @@ public class reader {
                     break;
                 }
 
-                int hashnum = Hashtable.hash(word);
+                int hashnum = hashtable.hash(word);
                 // add word to count
                 for(int i = 0; i<10000; i++) {
                     if(hashWords[hashnum][i]==null){

@@ -8,13 +8,13 @@ public class Main {
 
     public static void main(String[] args) {
         // create an array with all
-        AllSamples = reader.readfileArray("samplestext.txt");
+        AllSamples = Reader.readfileArray("samplestext.txt");
 
         // analyse data in hashtable
-        hashtable.analyseHashes();
+        Hashtable.analyseHashes();
 
         // analyse data in arrays
-        arrays.analyseArray();
+        Arrays.analyseArray();
     }
 
     // get number of words in array
