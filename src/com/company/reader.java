@@ -9,7 +9,7 @@ import java.io.FileReader;
 /* Class for reading files into arrays
  *
  */
-public class reader {
+public class Reader {
 
     // create bufferedreader words
     public static BufferedReader words;
