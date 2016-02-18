@@ -10,7 +10,7 @@ public class arrays {
 
     public static void analyseArray(){
         // make an array with all the words
-        arrayWords = reader.readfileArray("wordlist.txt");
+        arrayWords = Reader.readfileArray("wordlist.txt");
         // compare the samples with the wordlist
         compareSample();
     }
@@ -24,7 +24,7 @@ public class arrays {
         for (int i = 0; i < 30; i++){
             // get the file name from place i and make array
             String file = Main.AllSamples[i];
-            arraySample = reader.readfileArray(file);
+            arraySample = Reader.readfileArray(file);
 
             // take time before comparing
             long time1 = System.nanoTime();
