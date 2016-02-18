@@ -3,7 +3,7 @@ package com.company;
 /**
  * Class for analysing wordlists in arrays
  */
-public class arrays {
+public class Arrays {
 
     static String[] arrayWords;
     static String[] arraySample;

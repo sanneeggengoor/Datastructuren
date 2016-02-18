@@ -4,7 +4,7 @@ package com.company;
 /**
  * Class for analysing wordlists in hashtables
  */
-public class hashtable {
+public class Hashtable {
 
     // create a twodimensional array as hashtable
     static String[][] hashWordList;
