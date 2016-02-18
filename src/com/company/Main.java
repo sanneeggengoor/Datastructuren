@@ -21,7 +21,7 @@ public class Main {
 
     // compares samples with the wordlist
     private static void compareSample(){
-        /* for every sample compare the words in the sample to
+        /* for every sample it compares the words in the sample to
          * the words in the wordlist. Starts at 1, because when
          * starting at 0 an error occurs.
          */
