@@ -3,14 +3,14 @@ package com.company;
 /**
  * Class for analysing wordlists in arrays
  */
-public class Arrays {
+public class arrays {
 
     static String[] arrayWords;
     static String[] arraySample;
 
     public static void analyseArray(){
         // make an array with all the words
-        arrayWords = Reader.readfileArray("wordlist.txt");
+        arrayWords = reader.readfileArray("wordlist.txt");
         // compare the samples with the wordlist
         compareSample();
     }
@@ -24,7 +24,7 @@ public class Arrays {
         for (int i = 1; i < 31; i++){
             // get the file name from place i and make array
             String file = Main.AllSamples[i];
-            arraySample = Reader.readfileArray(file);
+            arraySample = reader.readfileArray(file);
 
             // take time before comparing
             long time1 = System.nanoTime();
