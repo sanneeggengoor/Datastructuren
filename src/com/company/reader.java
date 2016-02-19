@@ -63,7 +63,7 @@ public class Reader {
 
 
     // create a hashtable from file
-    public static String[][] readfileHashOpen(String file){
+    public static String[][] readfileHashChained(String file){
         // read file in words
         try {
             words = new BufferedReader(new FileReader(new File(file)));
@@ -87,7 +87,7 @@ public class Reader {
                     break;
                 }
 
-                int hashnum = hashtable.hash(word);
+                int hashnum = Hashtable.hash(word);
                 // add word to count
                 for(int i = 0; i<10000; i++) {
                     if(hashWords[hashnum][i]==null){
@@ -105,6 +105,106 @@ public class Reader {
         }
         return hashWords;
 
+    }
+
+    public static String[] readfileHashOpen(String file){
+        // read file in words
+        try {
+            words = new BufferedReader(new FileReader(new File(file)));
+        }
+
+        // if it doesn't work, println with error
+        catch (Exception e) {
+            System.out.println("Error1" + e);
+        }
+
+        String[] hashWords  = new String[10000000];
+
+        while (true) {
+            try {
+                // read next line to word
+                String word = words.readLine();
+
+
+                // if word is null break out while loop
+                if (word == null) {
+                    break;
+                }
+
+                int hashnum = Hashtable.hash(word);
+                // add word to count
+
+                if (hashWords[hashnum*10000]==null){
+                    hashWords[hashnum*10000]=word;
+                } else{
+                    int i = hashnum*10000 +1;
+                    while (true){
+                        if(hashWords[i]==null){
+                            hashWords[i]=word;
+                            break;
+                        }
+                        i++;
+                    }
+                }
+            }
+
+            // if it doesn't work, return error
+            catch (Exception e) {//
+                System.out.println("Error "+ e);
+                break;
+            }
+        }
+
+        return hashWords;
+
+    }
+
+    public static char[][][][][][][][][][][][][][][] readfileTrie(String file){
+        // read file in words
+        try {
+            words = new BufferedReader(new FileReader(new File(file)));
+        }
+
+        // if it doesn't work, println with error
+        catch (Exception e) {
+            System.out.println("Error1" + e);
+        }
+
+        char[][][][][][][][][][][][][][][] trie= new char[54][54][54][54][54][54][54][54][54][54][54][54][54][54][54];
+        while (true) {
+            try {
+                // read next line to word
+                String word = words.readLine();
+
+
+                // if word is null break out while loop
+                if (word == null) {
+                    break;
+                }
+
+                int[] wordasc = readin(word);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }
+
+    private static int[] readin(String word){
+
+        int[] wordAscii = new int[15];
+        for (int i = 0; i< word.length(); i++){
+            char letter = word.charAt(i);
+            int let = letter;
+            if (let > 96 && let < 123) {
+                let = let - 'a';
+            } else if (let > 64 && let < 91) {
+                let = let - 'A' + 26;
+            } else {
+                let = 52;
+            }
+            wordAscii[i] = let;
+        }
+        return wordAscii;
     }
 
     

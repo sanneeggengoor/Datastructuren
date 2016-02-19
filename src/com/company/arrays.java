@@ -44,6 +44,7 @@ public class Arrays {
             /* prints information about which sample has how many
              * good words and how many time it has taken.
              */
+            System.out.println("Array");
             System.out.println(file);
             System.out.println("time : "+ totaltime);
             System.out.println(good+"/"+length);

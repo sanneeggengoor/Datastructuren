@@ -10,8 +10,12 @@ public class Main {
         // create an array with all
         AllSamples = Reader.readfileArray("samplestext.txt");
 
-        // analyse data in hashtable
+        // analyse data in hashtable open addressing
         Hashtable.analyseHashes();
+
+        // analyse data in hashtable
+        HashChained.analyseHashes();
+
 
         // analyse data in arrays
         Arrays.analyseArray();
