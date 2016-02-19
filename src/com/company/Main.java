@@ -10,12 +10,14 @@ public class Main {
         // create an array with all
         AllSamples = Reader.readfileArray("samplestext.txt");
 
+        // Analyse data in Trie, does not work.
+        // Trie.analyseTrie();
+
         // analyse data in hashtable open addressing
         Hashtable.analyseHashes();
 
         // analyse data in hashtable
         HashChained.analyseHashes();
-
 
         // analyse data in arrays
         Arrays.analyseArray();

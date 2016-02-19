@@ -2,11 +2,11 @@ package com.company;
 
 
 /**
- * Class for analysing wordlists in hashtables
+ * Class for analysing wordlists in hashtables with open adressing
  */
 public class Hashtable {
 
-    // create a twodimensional array as hashtable
+    // create an array as hashtable
     static String[] hashWordList;
 
     public static void analyseHashes(){
@@ -82,7 +82,8 @@ public class Hashtable {
         int i = 0;
 
         while (true){
-            // get the word in hashWordList at position [hashnumber][i]
+            // get the word in hashWordList at position [hashnumber*10000 + i]
+            // until an empty slot is found
             String wordoriginal = hashWordList[hashnumber*10000 + i];
 
             // if the word equals a word from the original list, return true
